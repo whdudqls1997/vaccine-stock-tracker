@@ -1,0 +1,9 @@
+_element_key,_element_name,_element_type,_list_child_element_keys
+district_id,district_id,string,[]
+facility_location,facility_location,geopoint,"[""facility_location_accuracy"",""facility_location_altitude"",""facility_location_latitude"",""facility_location_longitude""]"
+facility_location_accuracy,accuracy,number,[]
+facility_location_altitude,altitude,number,[]
+facility_location_latitude,latitude,number,[]
+facility_location_longitude,longitude,number,[]
+facility_name,facility_name,string,[]
+facility_type,facility_type,string,[]

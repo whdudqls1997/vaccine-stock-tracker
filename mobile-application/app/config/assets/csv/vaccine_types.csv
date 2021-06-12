@@ -1,0 +1,4 @@
+_id,_form_id,_locale,_savepoint_type,_savepoint_timestamp,_savepoint_creator,campaign,num_doses,vaccine_name,_default_access,_group_modify,_group_privileged,_group_read_only,_row_etag,_row_owner
+uuid:f7e2a135-9bbb-480a-bfb3-cea90fcd329e,vaccine_types,en_US,COMPLETE,2021-05-06T03:10:06.281000000,anonymous,campaign,2,Pfizer Covid19,FULL,,,,,anonymous
+uuid:f7e2a135-9bbb-480a-bfb3-cea90fcd329d,vaccine_types,en_US,COMPLETE,2021-05-06T03:10:06.281000000,anonymous,campaign,2,Moderna Covid19,FULL,,,,,anonymous
+uuid:f7e2a135-9bbb-480a-bfb3-cea90fcd329c,vaccine_types,en_US,COMPLETE,2021-05-06T03:10:06.281000000,anonymous,campaign,1,AstraZeneca Covid19,FULL,,,,,anonymous

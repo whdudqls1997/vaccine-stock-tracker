@@ -1,13 +1,17 @@
 # vaccine-stock-tracker
 An implementation of vaccine stock tracker.
 
-This project consists of 3 parts: the mobile application, the backend server, and the frontend dashboard.
+This project consists of 3 parts: 
+the mobile application, 
+the backend server, 
+and the frontend dashboard.
 
-The goal of this project is to collect mass data through the mobile app,
+The goal of this project is to: 
+collect mass data through the mobile app,
 process the data at the backend,
 and display the processed data at a web dashboard.
 
-The data collection runs on ODK-X framework
+The mobile app (data collection) runs on ODK-X framework
 https://odk-x.org/software/
 
 The backend processes data in Java & fowards it to the frontend with Sprint boot.

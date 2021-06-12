@@ -1,0 +1,1207 @@
+{
+  "xlsx": {
+    "settings": [
+      {
+        "setting_name": "form_id",
+        "value": "stock_transactions",
+        "_row_num": 2
+      },
+      {
+        "setting_name": "form_version",
+        "value": 20210531,
+        "_row_num": 3
+      },
+      {
+        "setting_name": "table_id",
+        "value": "stock_transactions",
+        "_row_num": 4
+      },
+      {
+        "setting_name": "survey",
+        "display": {
+          "title": {
+            "text": "Edit Stock Transactions"
+          }
+        },
+        "_row_num": 5
+      }
+    ],
+    "survey": [
+      {
+        "clause": "begin screen",
+        "_row_num": 2
+      },
+      {
+        "type": "select_one_dropdown",
+        "values_list": "facilities_list",
+        "name": "facility_id",
+        "display": {
+          "prompt": {
+            "text": "<b>Which facility?</b>"
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "type": "select_one_dropdown",
+        "values_list": "vaccines_list",
+        "name": "vaccine_id",
+        "display": {
+          "prompt": {
+            "text": "<br><b>Which vaccine?</b>"
+          }
+        },
+        "_row_num": 4
+      },
+      {
+        "type": "integer",
+        "name": "batch_id",
+        "display": {
+          "prompt": {
+            "text": "Which batch number?"
+          }
+        },
+        "_row_num": 5
+      },
+      {
+        "type": "select_one_dropdown",
+        "values_list": "reason_list",
+        "name": "reason",
+        "display": {
+          "prompt": {
+            "text": "<b>What is the reason for the change in stock?</b>"
+          }
+        },
+        "_row_num": 6
+      },
+      {
+        "clause": "if",
+        "condition": "(data('reason') == 'administered')",
+        "_row_num": 7
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": "Change in stock from vaccines administered must be less than 0"
+          }
+        },
+        "_row_num": 8
+      },
+      {
+        "clause": "end if",
+        "_row_num": 9
+      },
+      {
+        "clause": "if",
+        "condition": "(data('reason') == 'received')",
+        "_row_num": 10
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": "Change in stock from vaccines received must be greater than 0"
+          }
+        },
+        "_row_num": 11
+      },
+      {
+        "clause": "end if",
+        "_row_num": 12
+      },
+      {
+        "clause": "if",
+        "condition": "(data('reason') == 'spoiled')",
+        "_row_num": 13
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": "Change in stock from vaccines spoiled must be less than 0"
+          }
+        },
+        "_row_num": 14
+      },
+      {
+        "clause": "end if",
+        "_row_num": 15
+      },
+      {
+        "clause": "if",
+        "condition": "(data('reason') == 'sent')",
+        "_row_num": 16
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": "Change in stock from vaccines sent must be less than 0"
+          }
+        },
+        "_row_num": 17
+      },
+      {
+        "clause": "end if",
+        "_row_num": 18
+      },
+      {
+        "type": "integer",
+        "name": "number",
+        "display": {
+          "prompt": {
+            "text": "What is the change in stock?"
+          }
+        },
+        "_row_num": 19
+      },
+      {
+        "type": "date",
+        "name": "start_date",
+        "display": {
+          "prompt": {
+            "text": "<br>What is the start date for this transaction period?"
+          }
+        },
+        "_row_num": 20
+      },
+      {
+        "type": "date",
+        "name": "end_date",
+        "display": {
+          "prompt": {
+            "text": "What is the end date for this transaction period?"
+          }
+        },
+        "_row_num": 21
+      },
+      {
+        "clause": "end screen",
+        "_row_num": 22
+      }
+    ],
+    "choices": [
+      {
+        "choice_list_name": "reason_list",
+        "data_value": "received",
+        "display": {
+          "title": {
+            "text": "Doses received"
+          }
+        },
+        "_row_num": 2
+      },
+      {
+        "choice_list_name": "reason_list",
+        "data_value": "administered",
+        "display": {
+          "title": {
+            "text": "Doses administered"
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "choice_list_name": "reason_list",
+        "data_value": "spoiled",
+        "display": {
+          "title": {
+            "text": "Doses spoiled"
+          }
+        },
+        "_row_num": 4
+      },
+      {
+        "choice_list_name": "reason_list",
+        "data_value": "sent",
+        "display": {
+          "title": {
+            "text": "Doses sent to other facilities"
+          }
+        },
+        "_row_num": 5
+      },
+      {
+        "choice_list_name": "reason_list",
+        "data_value": "stat_correction",
+        "display": {
+          "title": {
+            "text": "Stat correction"
+          }
+        },
+        "_row_num": 6
+      }
+    ],
+    "queries": [
+      {
+        "query_name": "facilities_list",
+        "query_type": "linked_table",
+        "linked_form_id": "facilities",
+        "linked_table_id": "facilities",
+        "selection": "1=1",
+        "selectionArgs": "[]",
+        "newRowInitialElementKeyToValueMap": "{}",
+        "openRowInitialElementKeyToValueMap": "{}",
+        "_row_num": 2
+      },
+      {
+        "query_name": "vaccines_list",
+        "query_type": "linked_table",
+        "linked_form_id": "vaccine_types",
+        "linked_table_id": "vaccine_types",
+        "selection": "1=1",
+        "selectionArgs": "[]",
+        "newRowInitialElementKeyToValueMap": "{}",
+        "openRowInitialElementKeyToValueMap": "{}",
+        "_row_num": 3
+      },
+      {
+        "query_name": "facility_stock",
+        "query_type": "linked_table",
+        "linked_form_id": "facility_stock",
+        "linked_table_id": "facility_stock",
+        "selection": "facility_id LIKE ? AND vaccine_id LIKE ? AND batch_id LIKE ?",
+        "selectionArgs": "['%' + data('facility_id') + '%', '%' + data('vaccine_id') + '%', '%' + data('batch_id') + '%']",
+        "newRowInitialElementKeyToValueMap": "{}",
+        "openRowInitialElementKeyToValueMap": "{}",
+        "_row_num": 4
+      }
+    ],
+    "properties": [
+      {
+        "partition": "Table",
+        "aspect": "default",
+        "key": "defaultViewType",
+        "type": "string",
+        "value": "LIST",
+        "_row_num": 2
+      },
+      {
+        "partition": "Table",
+        "aspect": "default",
+        "key": "detailViewFileName",
+        "type": "string",
+        "value": "config/tables/stock_transactions/html/stock_detail.html",
+        "_row_num": 3
+      },
+      {
+        "partition": "Table",
+        "aspect": "default",
+        "key": "listViewFileName",
+        "type": "string",
+        "value": "config/tables/stock_transactions/html/stock_list.html",
+        "_row_num": 4
+      }
+    ]
+  },
+  "specification": {
+    "column_types": {
+      "_screen_block": "function",
+      "condition": "formula",
+      "constraint": "formula",
+      "required": "formula",
+      "calculation": "formula",
+      "newRowInitialElementKeyToValueMap": "formula",
+      "openRowInitialElementKeyToValueMap": "formula",
+      "selectionArgs": "formula",
+      "url": "formula",
+      "uri": "formula",
+      "callback": "formula(context)",
+      "choice_filter": "formula(choice_item)",
+      "templatePath": "requirejs_path"
+    },
+    "settings": {
+      "form_id": {
+        "setting_name": "form_id",
+        "value": "stock_transactions",
+        "_row_num": 2
+      },
+      "form_version": {
+        "setting_name": "form_version",
+        "value": 20210531,
+        "_row_num": 3
+      },
+      "table_id": {
+        "setting_name": "table_id",
+        "value": "stock_transactions",
+        "_row_num": 4
+      },
+      "survey": {
+        "setting_name": "survey",
+        "display": {
+          "title": {
+            "text": "Edit Stock Transactions"
+          }
+        },
+        "_row_num": 5
+      },
+      "_locales": {
+        "setting_name": "_locales",
+        "_row_num": 5,
+        "value": [
+          {
+            "display": {
+              "locale": {
+                "text": "default"
+              }
+            },
+            "name": "default"
+          }
+        ]
+      },
+      "_default_locale": {
+        "setting_name": "_default_locale",
+        "_row_num": 5,
+        "value": "default"
+      },
+      "initial": {
+        "setting_name": "survey",
+        "display": {
+          "title": {
+            "text": "Edit Stock Transactions"
+          }
+        },
+        "_row_num": 5
+      }
+    },
+    "choices": {
+      "reason_list": [
+        {
+          "choice_list_name": "reason_list",
+          "data_value": "received",
+          "display": {
+            "title": {
+              "text": "Doses received"
+            }
+          },
+          "_row_num": 2
+        },
+        {
+          "choice_list_name": "reason_list",
+          "data_value": "administered",
+          "display": {
+            "title": {
+              "text": "Doses administered"
+            }
+          },
+          "_row_num": 3
+        },
+        {
+          "choice_list_name": "reason_list",
+          "data_value": "spoiled",
+          "display": {
+            "title": {
+              "text": "Doses spoiled"
+            }
+          },
+          "_row_num": 4
+        },
+        {
+          "choice_list_name": "reason_list",
+          "data_value": "sent",
+          "display": {
+            "title": {
+              "text": "Doses sent to other facilities"
+            }
+          },
+          "_row_num": 5
+        },
+        {
+          "choice_list_name": "reason_list",
+          "data_value": "stat_correction",
+          "display": {
+            "title": {
+              "text": "Stat correction"
+            }
+          },
+          "_row_num": 6
+        }
+      ]
+    },
+    "table_specific_definitions": {
+      "_tokens": {}
+    },
+    "queries": {
+      "facilities_list": {
+        "query_name": "facilities_list",
+        "query_type": "linked_table",
+        "linked_form_id": "facilities",
+        "linked_table_id": "facilities",
+        "selection": "1=1",
+        "selectionArgs": "[]",
+        "newRowInitialElementKeyToValueMap": "{}",
+        "openRowInitialElementKeyToValueMap": "{}",
+        "_row_num": 2
+      },
+      "vaccines_list": {
+        "query_name": "vaccines_list",
+        "query_type": "linked_table",
+        "linked_form_id": "vaccine_types",
+        "linked_table_id": "vaccine_types",
+        "selection": "1=1",
+        "selectionArgs": "[]",
+        "newRowInitialElementKeyToValueMap": "{}",
+        "openRowInitialElementKeyToValueMap": "{}",
+        "_row_num": 3
+      },
+      "facility_stock": {
+        "query_name": "facility_stock",
+        "query_type": "linked_table",
+        "linked_form_id": "facility_stock",
+        "linked_table_id": "facility_stock",
+        "selection": "facility_id LIKE ? AND vaccine_id LIKE ? AND batch_id LIKE ?",
+        "selectionArgs": "['%' + data('facility_id') + '%', '%' + data('vaccine_id') + '%', '%' + data('batch_id') + '%']",
+        "newRowInitialElementKeyToValueMap": "{}",
+        "openRowInitialElementKeyToValueMap": "{}",
+        "_row_num": 4
+      }
+    },
+    "calculates": {},
+    "model": {
+      "facility_id": {
+        "_defn": [
+          {
+            "_row_num": 3,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "valuesList": "facilities_list",
+        "elementKey": "facility_id"
+      },
+      "vaccine_id": {
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "valuesList": "vaccines_list",
+        "elementKey": "vaccine_id"
+      },
+      "batch_id": {
+        "_defn": [
+          {
+            "_row_num": 5,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "batch_id"
+      },
+      "reason": {
+        "_defn": [
+          {
+            "_row_num": 6,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "valuesList": "reason_list",
+        "elementKey": "reason"
+      },
+      "number": {
+        "_defn": [
+          {
+            "_row_num": 19,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "number"
+      },
+      "start_date": {
+        "_defn": [
+          {
+            "_row_num": 20,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "elementType": "date",
+        "elementKey": "start_date"
+      },
+      "end_date": {
+        "_defn": [
+          {
+            "_row_num": 21,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "elementType": "date",
+        "elementKey": "end_date"
+      }
+    },
+    "section_names": [
+      "initial",
+      "survey"
+    ],
+    "sections": {
+      "survey": {
+        "section_name": "survey",
+        "nested_sections": {},
+        "reachable_sections": {},
+        "prompts": [
+          {
+            "type": "select_one_dropdown",
+            "values_list": "facilities_list",
+            "name": "facility_id",
+            "display": {
+              "prompt": {
+                "text": "<b>Which facility?</b>"
+              }
+            },
+            "_row_num": 3,
+            "__rowNum__": 2,
+            "_token_type": "prompt",
+            "_type": "select_one_dropdown",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 0
+          },
+          {
+            "type": "select_one_dropdown",
+            "values_list": "vaccines_list",
+            "name": "vaccine_id",
+            "display": {
+              "prompt": {
+                "text": "<br><b>Which vaccine?</b>"
+              }
+            },
+            "_row_num": 4,
+            "__rowNum__": 3,
+            "_token_type": "prompt",
+            "_type": "select_one_dropdown",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 1
+          },
+          {
+            "type": "integer",
+            "name": "batch_id",
+            "display": {
+              "prompt": {
+                "text": "Which batch number?"
+              }
+            },
+            "_row_num": 5,
+            "__rowNum__": 4,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 2
+          },
+          {
+            "type": "select_one_dropdown",
+            "values_list": "reason_list",
+            "name": "reason",
+            "display": {
+              "prompt": {
+                "text": "<b>What is the reason for the change in stock?</b>"
+              }
+            },
+            "_row_num": 6,
+            "__rowNum__": 5,
+            "_token_type": "prompt",
+            "_type": "select_one_dropdown",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 3
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": "Change in stock from vaccines administered must be less than 0"
+              }
+            },
+            "_row_num": 8,
+            "__rowNum__": 7,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 4
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": "Change in stock from vaccines received must be greater than 0"
+              }
+            },
+            "_row_num": 11,
+            "__rowNum__": 10,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 5
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": "Change in stock from vaccines spoiled must be less than 0"
+              }
+            },
+            "_row_num": 14,
+            "__rowNum__": 13,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 6
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": "Change in stock from vaccines sent must be less than 0"
+              }
+            },
+            "_row_num": 17,
+            "__rowNum__": 16,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 7
+          },
+          {
+            "type": "integer",
+            "name": "number",
+            "display": {
+              "prompt": {
+                "text": "What is the change in stock?"
+              }
+            },
+            "_row_num": 19,
+            "__rowNum__": 18,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 8
+          },
+          {
+            "type": "date",
+            "name": "start_date",
+            "display": {
+              "prompt": {
+                "text": "<br>What is the start date for this transaction period?"
+              }
+            },
+            "_row_num": 20,
+            "__rowNum__": 19,
+            "_token_type": "prompt",
+            "_type": "date",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 9
+          },
+          {
+            "type": "date",
+            "name": "end_date",
+            "display": {
+              "prompt": {
+                "text": "What is the end date for this transaction period?"
+              }
+            },
+            "_row_num": 21,
+            "__rowNum__": 20,
+            "_token_type": "prompt",
+            "_type": "date",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 10
+          },
+          {
+            "_token_type": "prompt",
+            "type": "contents",
+            "_type": "contents",
+            "_row_num": 23,
+            "_branch_label_enclosing_screen": "survey/_screen23",
+            "promptIdx": 11
+          }
+        ],
+        "validation_tag_map": {
+          "finalize": []
+        },
+        "operations": [
+          {
+            "clause": "begin screen",
+            "_row_num": 2,
+            "__rowNum__": 1,
+            "_token_type": "begin_screen",
+            "_end_screen_clause": {
+              "clause": "end screen",
+              "_row_num": 22,
+              "__rowNum__": 21,
+              "_token_type": "end_screen"
+            },
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nif ((data('reason') == 'administered')) {\nactivePromptIndicies.push(4);\n}\nif ((data('reason') == 'received')) {\nactivePromptIndicies.push(5);\n}\nif ((data('reason') == 'spoiled')) {\nactivePromptIndicies.push(6);\n}\nif ((data('reason') == 'sent')) {\nactivePromptIndicies.push(7);\n}\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\nactivePromptIndicies.push(10);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 0
+          },
+          {
+            "_token_type": "exit_section",
+            "clause": "exit section",
+            "_row_num": 23,
+            "operationIdx": 1
+          },
+          {
+            "_row_num": 23,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(11);\n\nreturn activePromptIndicies;\n}\n",
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 2
+          },
+          {
+            "_token_type": "resume",
+            "clause": "resume",
+            "_row_num": 23,
+            "operationIdx": 3
+          }
+        ],
+        "branch_label_map": {
+          "_screen2": 0,
+          "_contents": 2,
+          "_screen23": 2
+        }
+      },
+      "initial": {
+        "section_name": "initial",
+        "nested_sections": {
+          "survey": true
+        },
+        "reachable_sections": {
+          "survey": true
+        },
+        "prompts": [
+          {
+            "_row_num": 3,
+            "type": "opening",
+            "display": {
+              "text": "Edit form"
+            },
+            "_token_type": "prompt",
+            "_type": "opening",
+            "_branch_label_enclosing_screen": "initial/_screen3",
+            "promptIdx": 0
+          },
+          {
+            "_row_num": 4,
+            "clause": "do section survey",
+            "_token_type": "prompt",
+            "_do_section_name": "survey",
+            "_type": "_section",
+            "promptIdx": 1,
+            "display": {
+              "title": {
+                "text": "Edit Stock Transactions"
+              }
+            },
+            "_branch_label_enclosing_screen": "survey/0"
+          },
+          {
+            "_row_num": 5,
+            "type": "finalize",
+            "display": {
+              "text": "Save form"
+            },
+            "_token_type": "prompt",
+            "_type": "finalize",
+            "_branch_label_enclosing_screen": "initial/_screen5",
+            "promptIdx": 2
+          },
+          {
+            "_row_num": 7,
+            "type": "instances",
+            "display": {
+              "text": "Saved instances"
+            },
+            "_token_type": "prompt",
+            "_type": "instances",
+            "_branch_label_enclosing_screen": "initial/_screen7",
+            "promptIdx": 3
+          },
+          {
+            "_token_type": "prompt",
+            "type": "contents",
+            "_type": "contents",
+            "_row_num": 9,
+            "_branch_label_enclosing_screen": "initial/_screen9",
+            "promptIdx": 4
+          }
+        ],
+        "validation_tag_map": {
+          "finalize": []
+        },
+        "operations": [
+          {
+            "_row_num": 2,
+            "clause": "if // start",
+            "condition": "(opendatakit.getCurrentInstanceId() != null)",
+            "_token_type": "goto_label",
+            "_tag_name": "start",
+            "_branch_label": "_then2",
+            "operationIdx": 0
+          },
+          {
+            "clause": "else // start",
+            "_token_type": "goto_label",
+            "_branch_label": "_else6",
+            "_row_num": 6,
+            "operationIdx": 1
+          },
+          {
+            "_row_num": 3,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 2
+          },
+          {
+            "_row_num": 4,
+            "clause": "do section survey",
+            "_token_type": "do_section",
+            "_do_section_name": "survey",
+            "operationIdx": 3
+          },
+          {
+            "_row_num": 5,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(2);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 4
+          },
+          {
+            "clause": "end if // start",
+            "_token_type": "goto_label",
+            "_branch_label": "_endif8",
+            "_row_num": 8,
+            "operationIdx": 5
+          },
+          {
+            "_row_num": 7,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(3);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 6
+          },
+          {
+            "_token_type": "exit_section",
+            "clause": "exit section",
+            "_row_num": 9,
+            "operationIdx": 7
+          },
+          {
+            "_row_num": 9,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(4);\n\nreturn activePromptIndicies;\n}\n",
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 8
+          },
+          {
+            "_token_type": "resume",
+            "clause": "resume",
+            "_row_num": 9,
+            "operationIdx": 9
+          },
+          {
+            "_token_type": "validate",
+            "clause": "validate finalize",
+            "_sweep_name": "finalize",
+            "_row_num": 9,
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 10
+          },
+          {
+            "_token_type": "save_and_terminate",
+            "clause": "save and terminate",
+            "calculation": true,
+            "_row_num": 9,
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 11
+          },
+          {
+            "_token_type": "resume",
+            "clause": "resume",
+            "_row_num": 9,
+            "operationIdx": 12
+          }
+        ],
+        "branch_label_map": {
+          "_then2": 2,
+          "_screen3": 2,
+          "_screen5": 4,
+          "_else6": 6,
+          "_screen7": 6,
+          "_endif8": 7,
+          "_contents": 8,
+          "_screen9": 8,
+          "_finalize": 10
+        }
+      }
+    },
+    "dataTableModel": {
+      "facility_id": {
+        "_defn": [
+          {
+            "_row_num": 3,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "valuesList": "facilities_list",
+        "elementKey": "facility_id",
+        "elementName": "facility_id",
+        "elementSet": "data",
+        "elementPath": "facility_id"
+      },
+      "vaccine_id": {
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "valuesList": "vaccines_list",
+        "elementKey": "vaccine_id",
+        "elementName": "vaccine_id",
+        "elementSet": "data",
+        "elementPath": "vaccine_id"
+      },
+      "batch_id": {
+        "_defn": [
+          {
+            "_row_num": 5,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "batch_id",
+        "elementName": "batch_id",
+        "elementSet": "data",
+        "elementPath": "batch_id"
+      },
+      "reason": {
+        "_defn": [
+          {
+            "_row_num": 6,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "valuesList": "reason_list",
+        "elementKey": "reason",
+        "elementName": "reason",
+        "elementSet": "data",
+        "elementPath": "reason"
+      },
+      "number": {
+        "_defn": [
+          {
+            "_row_num": 19,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "number",
+        "elementName": "number",
+        "elementSet": "data",
+        "elementPath": "number"
+      },
+      "start_date": {
+        "_defn": [
+          {
+            "_row_num": 20,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "elementType": "date",
+        "elementKey": "start_date",
+        "elementName": "start_date",
+        "elementSet": "data",
+        "elementPath": "start_date"
+      },
+      "end_date": {
+        "_defn": [
+          {
+            "_row_num": 21,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
+        "elementType": "date",
+        "elementKey": "end_date",
+        "elementName": "end_date",
+        "elementSet": "data",
+        "elementPath": "end_date"
+      },
+      "_id": {
+        "type": "string",
+        "isNotNullable": true,
+        "elementKey": "_id",
+        "elementName": "_id",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_id"
+      },
+      "_row_etag": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_row_etag",
+        "elementName": "_row_etag",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_row_etag"
+      },
+      "_sync_state": {
+        "type": "string",
+        "isNotNullable": true,
+        "elementKey": "_sync_state",
+        "elementName": "_sync_state",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_sync_state"
+      },
+      "_conflict_type": {
+        "type": "integer",
+        "isNotNullable": false,
+        "elementKey": "_conflict_type",
+        "elementName": "_conflict_type",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_conflict_type"
+      },
+      "_default_access": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_default_access",
+        "elementName": "_default_access",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_default_access"
+      },
+      "_form_id": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_form_id",
+        "elementName": "_form_id",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_form_id"
+      },
+      "_group_modify": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_group_modify",
+        "elementName": "_group_modify",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_group_modify"
+      },
+      "_group_privileged": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_group_privileged",
+        "elementName": "_group_privileged",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_group_privileged"
+      },
+      "_group_read_only": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_group_read_only",
+        "elementName": "_group_read_only",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_group_read_only"
+      },
+      "_locale": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_locale",
+        "elementName": "_locale",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_locale"
+      },
+      "_row_owner": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_row_owner",
+        "elementName": "_row_owner",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_row_owner"
+      },
+      "_savepoint_type": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_savepoint_type",
+        "elementName": "_savepoint_type",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_savepoint_type"
+      },
+      "_savepoint_timestamp": {
+        "type": "string",
+        "isNotNullable": true,
+        "elementKey": "_savepoint_timestamp",
+        "elementName": "_savepoint_timestamp",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_savepoint_timestamp"
+      },
+      "_savepoint_creator": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_savepoint_creator",
+        "elementName": "_savepoint_creator",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_savepoint_creator"
+      }
+    },
+    "properties": [
+      {
+        "_partition": "Column",
+        "_aspect": "reason",
+        "_key": "displayChoicesList",
+        "_type": "object",
+        "_value": "[{\"choice_list_name\":\"reason_list\",\"data_value\":\"received\",\"display\":{\"title\":{\"text\":\"Doses received\"}},\"_row_num\":2},{\"choice_list_name\":\"reason_list\",\"data_value\":\"administered\",\"display\":{\"title\":{\"text\":\"Doses administered\"}},\"_row_num\":3},{\"choice_list_name\":\"reason_list\",\"data_value\":\"spoiled\",\"display\":{\"title\":{\"text\":\"Doses spoiled\"}},\"_row_num\":4},{\"choice_list_name\":\"reason_list\",\"data_value\":\"sent\",\"display\":{\"title\":{\"text\":\"Doses sent to other facilities\"}},\"_row_num\":5},{\"choice_list_name\":\"reason_list\",\"data_value\":\"stat_correction\",\"display\":{\"title\":{\"text\":\"Stat correction\"}},\"_row_num\":6}]"
+      },
+      {
+        "_partition": "FormType",
+        "_aspect": "default",
+        "_key": "FormType.formType",
+        "_type": "string",
+        "_value": "SURVEY"
+      },
+      {
+        "_partition": "SurveyUtil",
+        "_aspect": "default",
+        "_key": "SurveyUtil.formId",
+        "_type": "string",
+        "_value": "stock_transactions"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "defaultViewType",
+        "_type": "string",
+        "_value": "LIST"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "detailViewFileName",
+        "_type": "string",
+        "_value": "config/tables/stock_transactions/html/stock_detail.html"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "displayName",
+        "_type": "object",
+        "_value": "{\"text\":\"Edit Stock Transactions\"}"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "listViewFileName",
+        "_type": "string",
+        "_value": "config/tables/stock_transactions/html/stock_list.html"
+      }
+    ]
+  }
+}

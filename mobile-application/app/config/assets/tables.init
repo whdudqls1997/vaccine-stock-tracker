@@ -1,0 +1,5 @@
+table_keys=facilities, vaccine_batches, vaccine_types, stock_transactions
+facilities.filename=config/assets/csv/facilities.csv
+vaccine_batches.filename=config/assets/csv/vaccine_batches.csv
+vaccine_types.filename=config/assets/csv/vaccine_types.csv
+stock_transactions.filename=config/assets/csv/stock_transactions.csv

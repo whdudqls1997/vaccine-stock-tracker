@@ -1,0 +1,10 @@
+_id,_form_id,_locale,_savepoint_type,_savepoint_timestamp,_savepoint_creator,district_id,facility_location_accuracy,facility_location_altitude,facility_location_latitude,facility_location_longitude,facility_name,facility_type,_default_access,_group_modify,_group_privileged,_group_read_only,_row_etag,_row_owner
+uuid:ba346da1-0d72-4ad6-9624-fdbad1ce92e5,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,MASINDI,0.00E+00,0.00E+00,1.6812614,31.725521,MASINDI MAIN PRISON HC III,ngo,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbad1ce92e6,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,MASINDI,0.00E+00,0.00E+00,1.6838607,31.715782,TASO MASINDI SPECIAL CLINIC,ngo,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbad1ce92e7,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,MASINDI,0.00E+00,0.00E+00,1.4703882,31.77339,KIJUNJUBWA KITARA MEDICAL CENTRE HC III,vaccine_store,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbad1ce92e8,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,BUGIRI,0.00E+00,0.00E+00,0.44946417,33.681347,NANKOMA ISLAMIC HC II,ngo,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbad1de92e9,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,BUGIRI,0.00E+00,0.00E+00,0.4238778,33.72809,BULIDHA,hospital,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbad1ce92e9,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,TORORO,0.00E+00,0.00E+00,0.7441687,34.184498,SWENA EYE CLINIC,ngo,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbad1ce92f0,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,TORORO,0.00E+00,0.00E+00,0.6481015,34.10064,OSIA,hospital,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbad1ce81f0,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,ZOMBO,0.00E+00,0.00E+00,2.4499664,30.822588,AYAKA HC II,ngo,FULL,,,,,anonymous
+uuid:ba346da1-0d72-4ad6-9624-fdbec1ce80f0,facilities,en_US,COMPLETE,2021-05-06T03:09:49.725000000,anonymous,ABIM,0.00E+00,0.00E+00,2.492153,33.910446,ORETA,hospital,FULL,,,,,anonymous

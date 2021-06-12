@@ -1,0 +1,8 @@
+_partition,_aspect,_key,_type,_value
+Column,reason,displayChoicesList,object,"[{""choice_list_name"":""reason_list"",""data_value"":""received"",""display"":{""title"":{""text"":""Doses received""}},""_row_num"":2},{""choice_list_name"":""reason_list"",""data_value"":""administered"",""display"":{""title"":{""text"":""Doses administered""}},""_row_num"":3},{""choice_list_name"":""reason_list"",""data_value"":""spoiled"",""display"":{""title"":{""text"":""Doses spoiled""}},""_row_num"":4},{""choice_list_name"":""reason_list"",""data_value"":""sent"",""display"":{""title"":{""text"":""Doses sent to other facilities""}},""_row_num"":5},{""choice_list_name"":""reason_list"",""data_value"":""stat_correction"",""display"":{""title"":{""text"":""Stat correction""}},""_row_num"":6}]"
+FormType,default,FormType.formType,string,SURVEY
+SurveyUtil,default,SurveyUtil.formId,string,stock_transactions
+Table,default,defaultViewType,string,LIST
+Table,default,detailViewFileName,string,config/tables/stock_transactions/html/stock_detail.html
+Table,default,displayName,object,"{""text"":""Edit Stock Transactions""}"
+Table,default,listViewFileName,string,config/tables/stock_transactions/html/stock_list.html

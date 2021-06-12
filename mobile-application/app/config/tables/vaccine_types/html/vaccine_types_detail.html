@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../../assets/css/detail.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="../../../assets/commonDefinitions.js"></script>
+        <script type="text/javascript" src="../tableSpecificDefinitions.js"></script>
+        <script type="text/javascript" src="../../../assets/libs/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="../../../../system/js/odkCommon.js"></script>
+        <script type="text/javascript" src="../../../../system/js/odkData.js"></script>
+        <script type="text/javascript" src="../../../../system/tables/js/odkTables.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript" src="../js/vaccine_types_detail.js"></script>
+
+        <h1><span id="TITLE" class="main-text"></span></h1>
+
+        <fieldset>
+          Name: <p id="FIELD_1" name="vaccine_name" > </p>
+          Num Doses For Full Vaccination: <p id="FIELD_2" name="num_doses" > </p>
+          Is Campaign: <input type="checkbox" id="FIELD_3" name="campaign" > </p>
+        </fieldset>
+
+        <script>
+            $(display);  // calls the detail display function when ready
+        </script>
+    </body>
+</html>

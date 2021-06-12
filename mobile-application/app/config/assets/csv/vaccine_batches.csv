@@ -1,0 +1,3 @@
+_id,_form_id,_locale,_savepoint_type,_savepoint_timestamp,_savepoint_creator,batch_num,expiry_date,num_doses,num_vial,vaccine_id,_default_access,_group_modify,_group_privileged,_group_read_only,_row_etag,_row_owner
+uuid:437b5a36-f8a1-4ef0-9ed3-74b536ae8678,vaccine_batches,en_US,COMPLETE,2021-05-06T03:10:42.488000000,anonymous,1,2021-07-31T07:00:00.000000000,8,500,uuid:f7e2a135-9bbb-480a-bfb3-cea90fcd329e,FULL,,,,,anonymous
+uuid:437b5a36-f8a1-4ef0-9ed3-74b536ae8679,vaccine_batches,en_US,COMPLETE,2021-05-06T03:10:42.488000000,anonymous,2,2021-07-31T07:00:00.000000000,8,500,uuid:f7e2a135-9bbb-480a-bfb3-cea90fcd329d,FULL,,,,,anonymous

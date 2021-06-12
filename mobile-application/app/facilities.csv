@@ -1,0 +1,2 @@
+operation,_id,_form_id,district_id,facility_location_accuracy,facility_location_altitude,facility_location_latitude,facility_location_longitude,facility_name,facility_type
+1,facilities,1,20,0,47.6680477,-122.3197857,Facility 1,hospital
